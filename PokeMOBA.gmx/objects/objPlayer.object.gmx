@@ -59,7 +59,10 @@ if hero = 1 {
     aniRight = sprBulbasaur2
     aniBot = sprBulbasaur3
     aniLeft = sprBulbasaur4
+    hpm = 450
 }
+
+hp = hpm
 </string>
           </argument>
         </arguments>
@@ -97,8 +100,9 @@ if distance_to_point(xmov,ymov) &gt;= 5 {
             grid = mp_grid_create(0,0,room_width/32,room_height/32,32,32)
             path = path_add()
             mp_grid_add_instances(grid,objTree,1)
+            mp_grid_add_instances(grid,objTower,1)
             mp_grid_path(grid,path,x,y,xmov,ymov,1)
-            path_start(path,2,"",1)
+            path_start(path,2,path_action_stop,1)
          }
       }
    } else {
@@ -106,6 +110,9 @@ if distance_to_point(xmov,ymov) &gt;= 5 {
      ymov = y
      speed = 0
    }
+if keyboard_check(ord('A')) {
+   hp -= 1
+}
 </string>
           </argument>
         </arguments>
@@ -141,6 +148,38 @@ if ymov &gt; y + 24 {
 }
 if ymov &lt; y - 24 {
    sprite_index = sprBulbasaur //aniTop
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_self()
+if hp &gt; hpm/1.5 {
+   draw_sprite_ext(sprHealth,0,x,y-12,hp/hpm,1,0,c_white,255)
+}
+if hp &lt;= hpm/1.5 and hp &gt; hpm/3 {
+   draw_sprite_ext(sprHealth,1,x,y-12,hp/hpm,1,0,c_white,255)
+}
+if hp &lt;= hpm/3 {
+   draw_sprite_ext(sprHealth,2,x,y-12,hp/hpm,1,0,c_white,255)
 }
 </string>
           </argument>

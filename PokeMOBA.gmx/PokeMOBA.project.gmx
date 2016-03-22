@@ -28,11 +28,13 @@
     </sprites>
     <sprites name="tiles">
       <sprite>sprites\sprTree</sprite>
+      <sprite>sprites\sprTower</sprite>
       <sprite>sprites\sprGrass</sprite>
     </sprites>
     <sprites name="GUI">
       <sprite>sprites\sprHud</sprite>
       <sprite>sprites\sprCamera</sprite>
+      <sprite>sprites\sprHealth</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
@@ -46,6 +48,10 @@
     <objects name="Player">
       <object>objects\objPlayer</object>
       <object>objects\objCamera</object>
+    </objects>
+    <objects name="gameProgression">
+      <object>objects\objCreep</object>
+      <object>objects\objTower</object>
     </objects>
   </objects>
   <rooms name="rooms">
