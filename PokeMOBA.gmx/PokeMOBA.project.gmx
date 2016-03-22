@@ -44,6 +44,7 @@
       <object>objects\objTree</object>
     </objects>
     <objects name="Player">
+      <object>objects\objPlayer</object>
       <object>objects\objCamera</object>
     </objects>
   </objects>
