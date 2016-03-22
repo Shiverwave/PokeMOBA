@@ -8,41 +8,44 @@
   <sprites name="sprites">
     <sprites name="pokemon">
       <sprites name="bulbasaur">
-        <sprite>sprites\spr_bulbasaur</sprite>
-        <sprite>sprites\spr_bulbasaur2</sprite>
-        <sprite>sprites\spr_bulbasaur3</sprite>
-        <sprite>sprites\spr_bulbasaur4</sprite>
+        <sprite>sprites\sprBulbasaur</sprite>
+        <sprite>sprites\sprBulbasaur2</sprite>
+        <sprite>sprites\sprBulbasaur3</sprite>
+        <sprite>sprites\sprBulbasaur4</sprite>
       </sprites>
       <sprites name="ivysaur">
-        <sprite>sprites\spr_ivysaur1</sprite>
-        <sprite>sprites\spr_ivysaur2</sprite>
-        <sprite>sprites\spr_ivysaur3</sprite>
-        <sprite>sprites\spr_ivysaur4</sprite>
+        <sprite>sprites\sprIvysaur1</sprite>
+        <sprite>sprites\sprIvysaur2</sprite>
+        <sprite>sprites\sprIvysaur3</sprite>
+        <sprite>sprites\sprIvysaur4</sprite>
       </sprites>
       <sprites name="venusaur">
-        <sprite>sprites\spr_venusaur1</sprite>
-        <sprite>sprites\spr_venusaur2</sprite>
-        <sprite>sprites\spr_venusaur3</sprite>
-        <sprite>sprites\spr_venusaur4</sprite>
+        <sprite>sprites\sprVenusaur1</sprite>
+        <sprite>sprites\sprVenusaur2</sprite>
+        <sprite>sprites\sprVenusaur3</sprite>
+        <sprite>sprites\sprVenusaur4</sprite>
       </sprites>
     </sprites>
     <sprites name="tiles">
-      <sprite>sprites\spr_tree</sprite>
-      <sprite>sprites\spr_grass</sprite>
+      <sprite>sprites\sprTree</sprite>
+      <sprite>sprites\sprGrass</sprite>
     </sprites>
-    <sprite>sprites\spr_hud</sprite>
-    <sprite>sprites\spr_camera</sprite>
+    <sprites name="GUI">
+      <sprite>sprites\sprHud</sprite>
+      <sprite>sprites\sprCamera</sprite>
+    </sprites>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <objects name="objects">
-    <object>objects\obj_hudCreate</object>
-    <object>objects\obj_grass</object>
-    <object>objects\obj_player1</object>
-    <object>objects\obj_player2</object>
-    <object>objects\obj_player3</object>
-    <object>objects\obj_camera</object>
-    <object>objects\obj_tree</object>
+    <object>objects\objGUI</object>
+    <objects name="mapProps">
+      <object>objects\objGrass</object>
+      <object>objects\objTree</object>
+    </objects>
+    <objects name="Player">
+      <object>objects\objCamera</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\battleMap1</room>
