@@ -36,6 +36,7 @@
       <sprite>sprites\sprCamera</sprite>
       <sprite>sprites\sprHealth</sprite>
     </sprites>
+    <sprite>sprites\sprCursorDefault</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
