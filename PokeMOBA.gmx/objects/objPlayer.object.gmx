@@ -31,6 +31,8 @@ sprite_index = sprBulbasaur
 xmov = x
 ymov = y
 image_speed = .1
+grid = mp_grid_create(0,0,room_width/32,room_height/32,32,32)
+path = path_add()
 </string>
           </argument>
         </arguments>
@@ -60,6 +62,7 @@ if hero = 1 {
     aniBot = sprBulbasaur3
     aniLeft = sprBulbasaur4
     hpm = 450
+    mspd = 1.25
 }
 
 hp = hpm
@@ -97,12 +100,10 @@ if place_meeting(xmov,ymov,objTree) {
 if distance_to_point(xmov,ymov) &gt;= 5 {
       if xmov != x {
          if ymov != y {
-            grid = mp_grid_create(0,0,room_width/32,room_height/32,32,32)
-            path = path_add()
             mp_grid_add_instances(grid,objTree,1)
             mp_grid_add_instances(grid,objTower,1)
-            mp_grid_path(grid,path,x,y,xmov,ymov,1)
-            path_start(path,2,path_action_stop,1)
+            mp_grid_path(grid,path,x,y,xmov,ymov,true)
+            path_start(path,mspd,path_action_stop,false)
          }
       }
    } else {
@@ -112,6 +113,9 @@ if distance_to_point(xmov,ymov) &gt;= 5 {
    }
 if keyboard_check(ord('A')) {
    hp -= 1
+}
+if speed &gt; mspd {
+   speed= mspd
 }
 </string>
           </argument>
@@ -180,6 +184,11 @@ if hp &lt;= hpm/1.5 and hp &gt; hpm/3 {
 }
 if hp &lt;= hpm/3 {
    draw_sprite_ext(sprHealth,2,x,y-12,hp/hpm,1,0,c_white,255)
+}
+if path_index = path {
+   with draw_path(path,x,y,true) {
+        draw_set_colour(c_green)
+   }
 }
 </string>
           </argument>
