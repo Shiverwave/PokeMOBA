@@ -38,6 +38,7 @@
       <sprite>sprites\sprHud</sprite>
       <sprite>sprites\sprCamera</sprite>
       <sprite>sprites\sprHealth</sprite>
+      <sprite>sprites\sprPP</sprite>
       <sprite>sprites\sprCursor</sprite>
       <sprite>sprites\sprCursorDefault</sprite>
     </sprites>

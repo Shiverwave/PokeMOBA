@@ -20,8 +20,6 @@
   <width>16</width>
   <height>2</height>
   <frames>
-    <frame index="0">images\sprHealth_0.png</frame>
-    <frame index="1">images\sprHealth_1.png</frame>
-    <frame index="2">images\sprHealth_2.png</frame>
+    <frame index="0">images\sprPP_0.png</frame>
   </frames>
 </sprite>
