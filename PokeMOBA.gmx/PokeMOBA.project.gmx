@@ -61,6 +61,7 @@
     <objects name="gameProgression">
       <object>objects\objCreep</object>
       <object>objects\objTower</object>
+      <object>objects\objBlast</object>
     </objects>
   </objects>
   <rooms name="rooms">
