@@ -30,14 +30,17 @@
       <sprite>sprites\sprTree</sprite>
       <sprite>sprites\sprTower</sprite>
       <sprite>sprites\sprGrass</sprite>
+      <sprite>sprites\sprPath</sprite>
+      <sprite>sprites\sprShallowWater</sprite>
+      <sprite>sprites\sprSandPath</sprite>
     </sprites>
     <sprites name="GUI">
       <sprite>sprites\sprHud</sprite>
       <sprite>sprites\sprCamera</sprite>
       <sprite>sprites\sprHealth</sprite>
       <sprite>sprites\sprCursor</sprite>
+      <sprite>sprites\sprCursorDefault</sprite>
     </sprites>
-    <sprite>sprites\sprCursorDefault</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -46,6 +49,9 @@
     <objects name="mapProps">
       <object>objects\objGrass</object>
       <object>objects\objTree</object>
+      <object>objects\objPath</object>
+      <object>objects\objSandPath</object>
+      <object>objects\objShallowWater</object>
     </objects>
     <objects name="Player">
       <object>objects\objPlayer</object>

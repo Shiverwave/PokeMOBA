@@ -58,7 +58,7 @@
 ww = window_get_width() 
 hh = window_get_height()
 draw_sprite_stretched(sprHud,0,-1,0,ww,hh)
-cursor_sprite = sprCursor
+cursor_sprite = sprCursorDefault
 </string>
           </argument>
         </arguments>
