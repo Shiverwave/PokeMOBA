@@ -33,6 +33,7 @@ ymov = y
 image_speed = .1
 grid = mp_grid_create(0,0,room_width/16,room_height/16,16,16)
 path = path_add()
+death = false
 </string>
           </argument>
         </arguments>
@@ -67,12 +68,13 @@ if hero = 1 {
 }
 pp = ppm
 hp = hpm
+alignment = 1 //1 = good
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -89,39 +91,15 @@ hp = hpm
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Movement
-if mouse_check_button_pressed(mb_right) {
-   if place_free(mouse_x,mouse_y) {
-      xmov = mouse_x
-      ymov = mouse_y
-   }
-}
-
-if distance_to_point(xmov,ymov) &gt;= 5  {//and (place_meeting(xmov,ymov,objTree) = false xor place_meeting(xmov,ymov,objTower = false)) {
-      if xmov != x {
-         if ymov != y {
-            mp_grid_add_instances(grid,objTree,1)
-            mp_grid_add_instances(grid,objTower,1)
-            mp_grid_path(grid,path,x,y,xmov,ymov,true)
-            path_start(path,mspd,path_action_stop,false)
-         }
-      }
-   } else {
-     xmov = x
-     ymov = y
-     speed = 0
-   }
-if keyboard_check(ord('A')) {
-   hp -= 1
-   pp -= 1
-}
-if speed &gt; mspd {
-   speed= mspd
+            <string>if death = true {
+   death = false
 }
 </string>
           </argument>
         </arguments>
       </action>
+    </event>
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -158,6 +136,141 @@ if ymov &lt; y - 24 {
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Movement
+if death = false {
+    if mouse_check_button_pressed(mb_right) {
+       if place_free(mouse_x,mouse_y) {
+          xmov = mouse_x
+          ymov = mouse_y
+       }
+    }
+    
+    if distance_to_point(xmov,ymov) &gt;= 5  {//and (place_meeting(xmov,ymov,objTree) = false xor place_meeting(xmov,ymov,objTower = false)) {
+          if xmov != x {
+             if ymov != y {
+                mp_grid_add_instances(grid,objTree,1)
+                mp_grid_add_instances(grid,objTower,1)
+                mp_grid_path(grid,path,x,y,xmov,ymov,true)
+                path_start(path,mspd,path_action_stop,false)
+             }
+          }
+       } else {
+         xmov = x
+         ymov = y
+         speed = 0
+       }
+    if keyboard_check(ord('A')) {
+       hp -= 1
+       pp -= 1
+    }
+    if speed &gt; mspd {
+       speed= mspd
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Death management
+if hp &lt;= 0 {
+   death = true
+   alarm[0] = 60 * 10
+   hp = hpm
+}
+if death = true {
+   x = 32
+   y = 304
+   xmov = x
+   ymov = y
+} 
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///HQ Management
+if point_distance(x,y,32,304) &lt;= 32 {
+   hp += 5
+   pp += 5
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Variable management
+if hp &gt; hpm {
+   hp = hpm
+}
+if pp &gt; ppm {
+   pp = ppm
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="8" enumb="0">
       <action>
@@ -176,21 +289,26 @@ if ymov &lt; y - 24 {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_self()
-if hp &gt; hpm/1.5 {
-   draw_sprite_ext(sprHealth,0,x,y-12,hp/hpm,1,0,c_white,255)
+            <string>if death = false { 
+    draw_self()
+    if hp &gt; hpm/1.5 {
+       draw_sprite_ext(sprHealth,0,x,y-12,hp/hpm,1,0,c_white,255)
+    }
+    if hp &lt;= hpm/1.5 and hp &gt; hpm/3 {
+       draw_sprite_ext(sprHealth,1,x,y-12,hp/hpm,1,0,c_white,255)
+    }
+    if hp &lt;= hpm/3 {
+       draw_sprite_ext(sprHealth,2,x,y-12,hp/hpm,1,0,c_white,255)
+    }
+    draw_sprite_ext(sprPP,2,x,y-10,pp/ppm,1,0,c_white,255)
+    if path_index = path {
+       with draw_path(path,x,y,true) {
+            draw_set_colour(c_green)
+       }
+       }
 }
-if hp &lt;= hpm/1.5 and hp &gt; hpm/3 {
-   draw_sprite_ext(sprHealth,1,x,y-12,hp/hpm,1,0,c_white,255)
-}
-if hp &lt;= hpm/3 {
-   draw_sprite_ext(sprHealth,2,x,y-12,hp/hpm,1,0,c_white,255)
-}
-draw_sprite_ext(sprPP,2,x,y-10,pp/ppm,1,0,c_white,255)
-if path_index = path {
-   with draw_path(path,x,y,true) {
-        draw_set_colour(c_green)
-   }
+if death = true {
+   draw_text(x,y,alarm[0]/60)
 }
 </string>
           </argument>

@@ -62,6 +62,7 @@
       <object>objects\objCreep</object>
       <object>objects\objTower</object>
       <object>objects\objBlast</object>
+      <object>objects\objCreepSpawner</object>
     </objects>
   </objects>
   <rooms name="rooms">

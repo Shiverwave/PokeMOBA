@@ -26,7 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>range = 82
-alarm[0] = 30
+alarm[0] = 1
+alignment = 0
+target = 0
 </string>
           </argument>
         </arguments>
@@ -71,51 +73,51 @@ alarm[0] = 30
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>target = instance_nearest(x+16,y+16,objPlayer)
-if instance_exists(target) {
-    if distance_to_object(target) &lt;= range {
-       if alarm[0] &lt;= 0 {
-          with instance_create(x+16,y+16,objBlast) {
-               own = other.instance_id
-          }
-          alarm[0] = 75
-       }
-    }
-}
-/*if instance_exists(targets)
-{
-    var closest = instance_nearest(x, y, targets);
-    if distance_to_object(closest) &lt; range
-    {
-      with instance_create(x+16,y+16,objBlast) {
-           move_towards_point(other.target.x,other.target.y,3)
+            <string>///Targeting
+if point_distance(x,y,objPlayer.x,objPlayer.y) &lt;= range {
+   if instance_nearest(x,y,objPlayer).alignment != alignment {
+      if target = 0 {
+         target = instance_nearest(x,y,objPlayer)
       }
-    }
+   }
 }
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="8" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>draw_self()
-draw_circle(x+16,y+16,range,1)
+if instance_exists(objCreep) {
+   if point_distance(x,y,objCreep.x,objCreep.y) &lt;= range {
+      if distance_to_object(objCreep) &lt;= range and objCreep.alignment != alignment {
+         if target = 0 {
+            target = objCreep
+         }
+      }
+   }
+}
+if target != 0 and alarm[0] &lt;= 0 {
+   if instance_exists(target) {
+      with instance_create(x+16,y+16,objBlast) {
+           alignment = other.alignment
+           move_towards_point(other.target.x,other.target.y,3)
+           
+      }
+      alarm[0] = 50
+   }
+   if !instance_exists(target) xor distance_to_object(target) &gt; range {
+      target = 0
+   }
+}
+/*
+if instance_nearest(x,y,objPlayer).alignment != self.alignment {
+   if instance_nearest(x,y,all).object_index = objPlayer {
+       with instance_nearest(x,y,all) {
+                if alignment != other.alignment {
+                   other.target = self
+                }
+   }              }
+}
+if instance_exists(target) {
+   with instance_create(x,y,objBlast) {
+        target = other.target
+        move_towards_point(target.x,target.y,3)
+   }
+}
 </string>
           </argument>
         </arguments>
