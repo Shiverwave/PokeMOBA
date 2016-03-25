@@ -58,7 +58,9 @@
       <sprite>sprites\sprCharProfilePic</sprite>
     </sprites>
     <sprites name="Creeps">
-      <sprite>sprites\sprCreep</sprite>
+      <sprite>sprites\sprCreep1</sprite>
+      <sprite>sprites\sprCreep2</sprite>
+      <sprite>sprites\sprCreep3</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
