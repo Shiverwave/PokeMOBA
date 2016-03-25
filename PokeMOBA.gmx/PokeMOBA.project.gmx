@@ -41,6 +41,7 @@
       <sprite>sprites\sprPP</sprite>
       <sprite>sprites\sprCursor</sprite>
       <sprite>sprites\sprCursorDefault</sprite>
+      <sprite>sprites\sprLight</sprite>
     </sprites>
     <sprites name="Creeps">
       <sprite>sprites\sprCreep</sprite>
@@ -49,7 +50,6 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <objects name="objects">
-    <object>objects\objGUI</object>
     <objects name="mapProps">
       <object>objects\objGrass</object>
       <object>objects\objTree</object>
@@ -63,9 +63,14 @@
     </objects>
     <objects name="gameProgression">
       <object>objects\objCreep</object>
-      <object>objects\objTower</object>
+      <object>objects\objBottomTower</object>
+      <object>objects\objTopTower</object>
       <object>objects\objBlast</object>
       <object>objects\objCreepSpawner</object>
+    </objects>
+    <objects name="mangement">
+      <object>objects\objWorldFog</object>
+      <object>objects\objGUI</object>
     </objects>
   </objects>
   <rooms name="rooms">

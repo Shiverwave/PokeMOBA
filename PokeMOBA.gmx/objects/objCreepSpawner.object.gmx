@@ -25,10 +25,19 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>alarm[0] = 60 * 15
+            <string>alarm[0] = 60 * 10
 if x &lt; room_width/2 {
    alignment = 1
 }
+if x &gt; room_width/2 {
+   alignment = 0
+}
+if y &lt; room_height/2 {
+   spawn = 0 
+} //0 = top
+if y &gt; room_height/2 {
+   spawn = 1
+} //1 = top
 </string>
           </argument>
         </arguments>
@@ -51,12 +60,42 @@ if x &lt; room_width/2 {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>for (i=0;i&lt;5;i+=1) {
-    with instance_create(x,y,objCreep) {
-         alignment = other.alignment
+            <string>randomize()
+for (i=0;i&lt;5;i+=1) {
+    if alignment = 0 {
+      if spawn = 0 {
+           with instance_create(x+random(i),y+random(i),objCreep) {
+                 creator = other.id
+                 alignment = 1
+                 spawn = 0
+            }
+        }
+        if spawn = 1 {
+           with instance_create(x+random(i),y+random(i),objCreep) {
+                 creator = other.id
+                 alignment = 1
+                 spawn = 1
+            }
+        }
+    }
+    if alignment = 1 {
+       if spawn = 0 {
+           with instance_create(x+random(i),y+random(i),objCreep) {
+                 creator = other.id
+                 alignment = 1
+                 spawn = 0
+            }
+        }
+        if spawn = 1 {
+           with instance_create(x+random(i),y+random(i),objCreep) {
+                 creator = other.id
+                 alignment = 1
+                 spawn = 1
+            }
+        }
     }
 }
-alarm[0] = 60 * 10
+alarm[0] = 60 * 30
 </string>
           </argument>
         </arguments>

@@ -27,7 +27,12 @@
             <kind>1</kind>
             <string>range = 82
 alarm[0] = 1
-alignment = 0
+if x &lt; room_width/2 {
+   alignment = 1
+}
+if x &gt; room_width/2 {
+   alignment = 0
+}
 target = 0
 </string>
           </argument>
@@ -82,24 +87,24 @@ if point_distance(x,y,objPlayer.x,objPlayer.y) &lt;= range {
    }
 }
 if instance_exists(objCreep) {
-   if point_distance(x,y,objCreep.x,objCreep.y) &lt;= range {
-      if distance_to_object(objCreep) &lt;= range and objCreep.alignment != alignment {
+   if distance_to_object(objCreep) &lt;= range {
+      if distance_to_object(objCreep) &lt;= range and instance_nearest(x,y,objCreep).alignment != alignment {
          if target = 0 {
-            target = objCreep
+            target = instance_nearest(x,y,objCreep)
          }
       }
    }
 }
 if target != 0 and alarm[0] &lt;= 0 {
    if instance_exists(target) {
-      with instance_create(x+16,y+16,objBlast) {
+      with instance_create(x,y,objBlast) {
            alignment = other.alignment
            move_towards_point(other.target.x,other.target.y,3)
            
       }
       alarm[0] = 50
    }
-   if !instance_exists(target) xor distance_to_object(target) &gt; range {
+   if instance_exists(target) = false or distance_to_object(target) &gt; range or target.hp &lt;= 0 {
       target = 0
    }
 }

@@ -3,12 +3,12 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-3</depth>
+  <depth>-1</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
-    <event eventtype="7" enumb="4">
+    <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -25,19 +25,20 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if room = battleMap1 {
-    for (a=0 a&lt;=room_width a+=32) {
-        for (b=0 b&lt;=room_height b+=32) {
-            instance_create(a,b,objGrass)
-        }
-    }
-}
+            <string>res = 10
+sFog = surface_create(room_width/res,room_height/res)
+
+surface_set_target(sFog)
+
+draw_clear(c_black)
+
+surface_reset_target()
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -54,30 +55,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//display_set_gui_size(window_get_width(), window_get_height());
-ww = window_get_width() 
-hh = window_get_height()
-draw_sprite_stretched(sprHud,0,-1,0,ww,hh)
-cursor_sprite = sprCursorDefault
+            <string>draw_surface_ext(sFog,0,0,res,res,0,0,1)
 </string>
           </argument>
         </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="27">
-      <action>
-        <libid>1</libid>
-        <id>332</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_end_game</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
       </action>
     </event>
   </events>
