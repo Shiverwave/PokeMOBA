@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>//Decides which image to display based on its surroundings - Braith
 image_speed = 0
+image_index = 4
 </string>
           </argument>
         </arguments>

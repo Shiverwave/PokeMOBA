@@ -25,6 +25,18 @@
         <sprite>sprites\sprVenusaur3</sprite>
         <sprite>sprites\sprVenusaur4</sprite>
       </sprites>
+      <sprites name="magikarp">
+        <sprite>sprites\sprMagikarp1</sprite>
+        <sprite>sprites\sprMagikarp2</sprite>
+        <sprite>sprites\sprMagikarp3</sprite>
+        <sprite>sprites\sprMagikarp4</sprite>
+      </sprites>
+      <sprites name="gyarados">
+        <sprite>sprites\sprGyarados1</sprite>
+        <sprite>sprites\sprGyarados2</sprite>
+        <sprite>sprites\sprGyarados3</sprite>
+        <sprite>sprites\sprGyarados4</sprite>
+      </sprites>
     </sprites>
     <sprites name="tiles">
       <sprite>sprites\sprTree</sprite>
@@ -33,6 +45,7 @@
       <sprite>sprites\sprPath</sprite>
       <sprite>sprites\sprShallowWater</sprite>
       <sprite>sprites\sprSandPath</sprite>
+      <sprite>sprites\sprRockyPath</sprite>
     </sprites>
     <sprites name="GUI">
       <sprite>sprites\sprHud</sprite>
@@ -56,6 +69,7 @@
       <object>objects\objPath</object>
       <object>objects\objSandPath</object>
       <object>objects\objShallowWater</object>
+      <object>objects\objRockPath</object>
     </objects>
     <objects name="Player">
       <object>objects\objPlayer</object>
