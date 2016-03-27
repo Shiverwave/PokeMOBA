@@ -46,6 +46,9 @@
       <sprite>sprites\sprShallowWater</sprite>
       <sprite>sprites\sprSandPath</sprite>
       <sprite>sprites\sprRockyPath</sprite>
+      <sprite>sprites\sprRock</sprite>
+      <sprite>sprites\sprRockSmall</sprite>
+      <sprite>sprites\sprPokeMart</sprite>
     </sprites>
     <sprites name="GUI">
       <sprite>sprites\sprHud</sprite>
@@ -73,6 +76,8 @@
       <object>objects\objSandPath</object>
       <object>objects\objShallowWater</object>
       <object>objects\objRockPath</object>
+      <object>objects\objRock</object>
+      <object>objects\objRockSmall</object>
     </objects>
     <objects name="Player">
       <object>objects\objPlayer</object>
@@ -84,6 +89,7 @@
       <object>objects\objTopTower</object>
       <object>objects\objBlast</object>
       <object>objects\objCreepSpawner</object>
+      <object>objects\objSideShop</object>
     </objects>
     <objects name="mangement">
       <object>objects\objWorldFog</object>

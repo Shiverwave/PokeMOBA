@@ -167,6 +167,8 @@ if death = false {
                 mp_grid_add_instances(grid,objTree,1)
                 mp_grid_add_instances(grid,objTopTower,1)
                 mp_grid_add_instances(grid,objBottomTower,1)
+                mp_grid_add_instances(grid,objRock,1)
+                mp_grid_add_instances(grid,objRockSmall,1)
                 mp_grid_path(grid,path,x,y,xmov,ymov,true)
                 path_start(path,mspd,path_action_stop,false)
              }
