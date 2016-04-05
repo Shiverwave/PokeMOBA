@@ -59,6 +59,7 @@
       <sprite>sprites\sprCursorDefault</sprite>
       <sprite>sprites\sprLight</sprite>
       <sprite>sprites\sprCharProfilePic</sprite>
+      <sprite>sprites\sprShop</sprite>
     </sprites>
     <sprites name="Creeps">
       <sprite>sprites\sprCreep1</sprite>

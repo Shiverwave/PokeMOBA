@@ -34,6 +34,9 @@ image_speed = .1
 grid = mp_grid_create(0,0,room_width/8,room_height/8,8,8)
 path = path_add()
 death = false
+//Shop Gui Init
+global.playerNearShop = 0
+global.shopGuiPos = 500
 </string>
           </argument>
         </arguments>
@@ -269,6 +272,17 @@ if hp &gt; hpm {
 }
 if pp &gt; ppm {
    pp = ppm
+}
+//Shop Distance Tracking
+if distance_to_object(objSideShop) &lt; 64 {
+    if global.shopGuiPos &gt; 0 {
+        global.shopGuiPos -= 10
+    }
+}
+if distance_to_object(objSideShop) &gt; 64 {
+    if global.shopGuiPos &lt; 500 {
+        global.shopGuiPos += 10
+    }
 }
 </string>
           </argument>
