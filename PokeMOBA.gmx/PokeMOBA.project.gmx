@@ -49,6 +49,8 @@
       <sprite>sprites\sprRock</sprite>
       <sprite>sprites\sprRockSmall</sprite>
       <sprite>sprites\sprPokeMart</sprite>
+      <sprite>sprites\sprPokeCentre</sprite>
+      <sprite>sprites\sprPokeCentreTile</sprite>
     </sprites>
     <sprites name="GUI">
       <sprite>sprites\sprHud</sprite>
@@ -79,6 +81,7 @@
       <object>objects\objRockPath</object>
       <object>objects\objRock</object>
       <object>objects\objRockSmall</object>
+      <object>objects\objPokeCentreTile</object>
     </objects>
     <objects name="Player">
       <object>objects\objPlayer</object>
@@ -91,6 +94,7 @@
       <object>objects\objBlast</object>
       <object>objects\objCreepSpawner</object>
       <object>objects\objSideShop</object>
+      <object>objects\objPokeCentre</object>
     </objects>
     <objects name="mangement">
       <object>objects\objWorldFog</object>
